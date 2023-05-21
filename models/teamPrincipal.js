@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const TeamPrincipalSchema = new Schema({
   name: { type: String, required: true },
-  age: { type: Number, required: true },
+
   team: { type: Schema.Types.ObjectId, ref: "Team", required: true },
 });
 

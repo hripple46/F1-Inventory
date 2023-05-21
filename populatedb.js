@@ -8,8 +8,10 @@ console.log(
 const userArgs = process.argv.slice(2);
 
 const Team = require("./models/team");
+const TeamPrincipal = require("./models/teamPrincipal");
 
 const teams = [];
+const teamPrincipals = [];
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false); // Prepare for Mongoose 7
@@ -23,6 +25,7 @@ async function main() {
   await mongoose.connect(mongoDB);
   console.log("Debug: Should be connected?");
   await createTeams();
+  await createTeamPrincipals();
 
   console.log("Debug: Closing mongoose");
   mongoose.connection.close();
@@ -36,14 +39,31 @@ async function teamCreate(name) {
   teams.push(team);
   console.log(`Added team: ${name}`);
 }
+async function teamPrincipalCreate(name, team) {
+  const teamPrincipal = new TeamPrincipal({
+    name: name,
+    team: team,
+  });
+  await teamPrincipal.save();
+  teamPrincipals.push(teamPrincipal);
+  console.log(`Added team principal: ${name}`);
+}
 
 async function createTeams() {
   console.log("Adding teams");
+  const teamNames = ["Red Bull", "Mercedes", "Ferrari"];
+  for (const name of teamNames) {
+    await teamCreate(name);
+  }
+}
+
+async function createTeamPrincipals() {
+  console.log("Adding team principals");
   await Promise.all([
-    teamCreate("Red Bull"),
+    teamPrincipalCreate("Christian Horner", teams[0]),
 
-    teamCreate("Mercedes"),
+    teamPrincipalCreate("Toto Wolff", teams[1]),
 
-    teamCreate("Ferarri"),
+    teamPrincipalCreate("Mattias Binotto", teams[2]),
   ]);
 }
