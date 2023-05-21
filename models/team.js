@@ -3,12 +3,6 @@ const Schema = mongoose.Schema;
 
 const TeamSchema = new Schema({
   name: { type: String, required: true },
-  driver: [{ type: Schema.Types.ObjectId, ref: "Driver", required: true }],
-  teamprincipal: {
-    type: Schema.Types.ObjectId,
-    ref: "TeamPrincipal",
-    required: true,
-  },
 });
 
 TeamSchema.virtual("url").get(function () {

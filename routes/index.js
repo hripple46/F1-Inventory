@@ -7,4 +7,6 @@ router.get("/", teams_controller.index);
 
 router.get("/teams", teams_controller.teams_list);
 
+router.get("/teamprincipal", )
+
 module.exports = router;
