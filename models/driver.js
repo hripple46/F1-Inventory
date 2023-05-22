@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const DriverSchema = new Schema({
   name: { type: String, required: true },
-  age: { type: Number, required: true },
-  team: { type: Schema.Types.ObjectId, ref: "Team", required: true },
+  age: { type: Number, required: false },
 });
 
 DriverSchema.virtual("url").get(function () {
