@@ -5,8 +5,15 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <%- include ('sidebar') %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="flex w-full">
+      <%- include ('sidebar') %>
+      <div class="w-3/4">
+        <h1 class="text-red-400 h-24"><%= title %></h1>
+        <p>Welcome to <%= title %></p>
+        <% for (let i = 0; i < teams_list.length; i++){ %>
+        <p><%= teams_list[i].name %></p>
+        <% } %>
+      </div>
+    </div>
   </body>
 </html>
