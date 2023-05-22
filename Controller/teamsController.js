@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Teams = require("../models/team");
+const TeamPrincipal = require("../models/teamPrincipal");
 
 exports.index = asyncHandler(async (req, res, next) => {
   const allTeams = await Teams.find().sort({ name: 1 }).exec();
@@ -9,6 +10,11 @@ exports.index = asyncHandler(async (req, res, next) => {
   });
 });
 
-exports.teams_list = asyncHandler(async (req, res, next) => {
-  res.send("Not Implemented: Team Page ");
+exports.teams_details = asyncHandler(async (req, res, next) => {
+  const team = await Teams.findById(req.params.id);
+  const teamprincipal = await TeamPrincipal.findById(team.teamprincipal);
+  res.render("team_details", {
+    title: team.name,
+    teamprinc: teamprincipal,
+  });
 });

@@ -8,7 +8,7 @@ const driver_controller = require("../Controller/driverController");
 /* GET home page. */
 router.get("/", teams_controller.index);
 
-router.get("/teams", teams_controller.teams_list);
+router.get("/team/:id", teams_controller.teams_details);
 
 router.get("/teamprincipal", teamPrincipal_controller.teamprincipal_list);
 

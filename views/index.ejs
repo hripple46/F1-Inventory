@@ -9,9 +9,9 @@
       <%- include ('sidebar') %>
       <div class="w-3/4">
         <h1 class="text-red-400 h-24"><%= title %></h1>
-        <p>Welcome to <%= title %></p>
-        <% for (let i = 0; i < teams_list.length; i++){ %>
-        <p><%= teams_list[i].name %></p>
+        <p><%= title %> Teams</p>
+        <% for(let i = 0; i < teams_list.length; i++) { %>
+        <a href="<%= teams_list[i].url %>"><p><%= teams_list[i].name %></p></a>
         <% } %>
       </div>
     </div>
