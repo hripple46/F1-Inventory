@@ -64,9 +64,9 @@ async function createTeams() {
   console.log("Adding teams");
   const teamNames = ["Red Bull", "Mercedes", "Ferrari"];
   await Promise.all([
-    teamCreate(teamNames[0], teamPrincipals[0], drivers[0], cars[0]),
-    teamCreate(teamNames[1], teamPrincipals[1], drivers[1], cars[1]),
-    teamCreate(teamNames[2], teamPrincipals[2], drivers[2], cars[2]),
+    teamCreate(teamNames[0], teamPrincipals[0], [drivers[0]], cars[0]),
+    teamCreate(teamNames[1], teamPrincipals[1], [drivers[1]], cars[1]),
+    teamCreate(teamNames[2], teamPrincipals[2], [drivers[2]], cars[2]),
   ]);
 }
 
