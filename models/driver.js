@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const DriverSchema = new Schema({
   name: { type: String, required: true },
   age: { type: Number, required: false },
+  championships: { type: Number, required: false },
 });
 
 DriverSchema.virtual("url").get(function () {

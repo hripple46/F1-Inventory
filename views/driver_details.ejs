@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <title><%= driver_details.name %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body class="w-full h-full">
+    <div class="flex w-full h-full">
+      <%- include ('sidebar') %>
+      <div class="w-3/4 pt-8 pl-4">
+        <h1 class="text-3xl text-red-600"><%= driver_details.name %></h1>
+
+        <div class="flex justify-evenly mt-8">
+          <p>Age: <%= driver_details.age %></p>
+          <p>World Driver Championships: <%= driver_details.championships %></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

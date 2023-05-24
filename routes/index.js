@@ -16,4 +16,6 @@ router.get("/car", car_controller.car_list);
 
 router.get("/driver", driver_controller.driver_list);
 
+router.get("/driver/:id", driver_controller.driver_details);
+
 module.exports = router;
