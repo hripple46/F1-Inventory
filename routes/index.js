@@ -12,6 +12,11 @@ router.get("/team/:id", teams_controller.teams_details);
 
 router.get("/teamprincipal", teamPrincipal_controller.teamprincipal_list);
 
+router.get(
+  "/teamprincipal/:id",
+  teamPrincipal_controller.teamPrincipal_details
+);
+
 router.get("/car", car_controller.car_list);
 
 router.get("/driver", driver_controller.driver_list);
