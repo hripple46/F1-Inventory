@@ -8,7 +8,6 @@ delete require.cache[require.resolve("./models/teamPrincipal")];
 // Get arguments passed on command line
 const userArgs = process.argv.slice(2);
 
-
 const Team = require("./models/team");
 const TeamPrincipal = require("./models/teamPrincipal");
 const Car = require("./models/car");
