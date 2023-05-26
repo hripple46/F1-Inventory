@@ -22,6 +22,9 @@ router.get("/car", car_controller.car_list);
 router.get("/car/:id", car_controller.car_details);
 
 router.get("/driver", driver_controller.driver_list);
+router.get("/driver/create", driver_controller.driver_create_get);
+
+router.post("/driver/create", driver_controller.driver_create_post);
 
 router.get("/driver/:id", driver_controller.driver_details);
 
