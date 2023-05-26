@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body class="w-full h-full">
+    <div class="flex w-full h-full">
+      <%- include ('sidebar') %>
+      <div class="w-3/4 pt-8 pl-4">
+        <h1 class="text-3xl text-red-600"><%= title %></h1>
+        <% let i = 0; %> <% for (let carInstance of carInstance_list) { %> <%
+        i++; %>
+        <div class="flex-col justify-evenly mt-8">
+          <p>Instance <%= i %></p>
+          <p>Engine Status: <%= carInstance.engineStatus %></p>
+          <p>Gearbox Status: <%= carInstance.gearboxStatus %></p>
+          <p>Body Work Status: <%=carInstance.bodyWorkStatus %></p>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
