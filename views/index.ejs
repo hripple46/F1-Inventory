@@ -8,15 +8,8 @@
     <div class="flex w-full h-full">
       <%- include ('sidebar') %>
       <div class="w-3/4 pt-8 pl-4">
-        <h1 class="text-red-600 h-24 text-3xl"><%= title %></h1>
-        <p class="text-2xl"><%= title %> Teams:</p>
-        <div class="flex justify-around mt-4">
-          <% for(let i = 0; i < teams_list.length; i++) { %>
-          <a href="<%= teams_list[i].url %>"
-            ><p class="text-xl"><%= teams_list[i].name %></p></a
-          >
-          <% } %>
-        </div>
+        <h1 class="text-red-600 h-24 text-3xl">F1 Dashboard</h1>
+        <p class="text-2xl">Overview</p>
       </div>
     </div>
   </body>

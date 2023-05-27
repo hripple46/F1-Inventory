@@ -4,9 +4,9 @@ const TeamPrincipal = require("../models/teamPrincipal");
 const Driver = require("../models/driver");
 const Car = require("../models/car");
 
-exports.index = asyncHandler(async (req, res, next) => {
+exports.teams_list = asyncHandler(async (req, res, next) => {
   const allTeams = await Teams.find().sort({ name: 1 }).exec();
-  res.render("index", {
+  res.render("teams_list", {
     title: "Formula 1",
     teams_list: allTeams,
   });

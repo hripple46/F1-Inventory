@@ -10,7 +10,7 @@
       <div class="w-3/4 pt-8 pl-4">
         <h1 class="text-3xl text-red-600">Drivers</h1>
 
-        <div class="flex justify-evenly mt-8">
+        <div class="flex flex-wrap justify-evenly mt-8 border-2 border-black">
           <% for (let driver of driver_list) { %>
           <a href="<%= driver.url %>">
             <div class="bg-gray-50 shadow-lg p-4 min-w-min">

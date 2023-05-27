@@ -4,9 +4,12 @@ const teams_controller = require("../Controller/teamsController");
 const teamPrincipal_controller = require("../Controller/teamPrincipalController");
 const car_controller = require("../Controller/carController");
 const driver_controller = require("../Controller/driverController");
+const indexController = require("../Controller/indexController");
 
 /* GET home page. */
-router.get("/", teams_controller.index);
+router.get("/", indexController.index);
+
+router.get("/teams", teams_controller.teams_list);
 
 router.get("/team/:id", teams_controller.teams_details);
 
