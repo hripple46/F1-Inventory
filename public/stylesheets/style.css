@@ -538,6 +538,10 @@ video {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .h-24 {
   height: 6rem;
 }
@@ -563,12 +567,12 @@ video {
   min-width: min-content;
 }
 
-.flex-col {
-  flex-direction: column;
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.flex-wrap {
-  flex-wrap: wrap;
+.flex-col {
+  flex-direction: column;
 }
 
 .justify-around {
@@ -579,8 +583,8 @@ video {
   justify-content: space-evenly;
 }
 
-.border-2 {
-  border-width: 2px;
+.gap-4 {
+  gap: 1rem;
 }
 
 .border-black {
