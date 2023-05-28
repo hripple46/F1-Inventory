@@ -550,6 +550,14 @@ video {
   height: 100%;
 }
 
+.min-h-\[90px\] {
+  min-height: 90px;
+}
+
+.w-1\/4 {
+  width: 25%;
+}
+
 .w-1\/5 {
   width: 20%;
 }
@@ -573,6 +581,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-around {

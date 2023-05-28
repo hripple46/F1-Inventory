@@ -12,27 +12,51 @@
         <p class="text-2xl">Overview</p>
         <ul class="grid grid-cols-3 gap-4 mt-8">
           <a href="/driver">
-            <li>
-              <h1 class="text-2xl">Drivers:</h1>
-              <p><%= drivers_count %></p>
+            <li
+              class="min-h-[90px] flex justify-around items-center h-full w-full"
+            >
+              <h1
+                class="flex items-center h-full w-3/4 bg-red-600 text-white text-2xl"
+              >
+                Drivers:
+              </h1>
+              <p class="text-2xl w-1/4"><%= drivers_count %></p>
             </li>
           </a>
           <a href="/teams">
-            <li>
-              <h1 class="text-2xl">Teams:</h1>
-              <p><%= teams_count %></p>
+            <li
+              class="min-h-[90px] flex justify-between items-center h-full w-full"
+            >
+              <h1
+                class="flex items-center w-3/4 h-full bg-red-600 text-white text-2xl"
+              >
+                Teams:
+              </h1>
+              <p class="text-2xl w-1/4"><%= teamçs_count %></p>
             </li>
           </a>
           <a href="teamprincipal">
-            <li>
-              <h1 class="text-2xl">Team Principals:</h1>
-              <p><%= team_principals_count %></p>
+            <li
+              class="min-h-[90px] flex justify-between items-center h-full w-full"
+            >
+              <h1
+                class="w-3/4 flex items-center h-full text-2xl bg-red-600 text-white"
+              >
+                Team Principals:
+              </h1>
+              <p class="w-1/4 text-2xl h-full"><%= team_principals_count %></p>
             </li>
           </a>
           <a href="/car">
-            <li>
-              <h1 class="text-2xl">Cars:</h1>
-              <p><%= cars_count %></p>
+            <li
+              class="min-h-[90px] flex justify-between items-center h-full w-full"
+            >
+              <h1
+                class="w-3/4 flex items-center h-full text-2xl bg-red-600 text-white"
+              >
+                Cars:
+              </h1>
+              <p class="w-1/4 text-2xl h-full"><%= cars_count %></p>
             </li>
           </a>
         </ul>
