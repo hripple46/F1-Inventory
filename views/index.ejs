@@ -10,28 +10,28 @@
       <div class="w-3/4 pt-8 pl-4">
         <h1 class="text-red-600 h-24 text-3xl">F1 Dashboard</h1>
         <p class="text-2xl">Overview</p>
-        <ul>
+        <ul class="grid grid-cols-3 gap-4 mt-8">
           <a href="/driver">
             <li>
-              <h1>Drivers:</h1>
+              <h1 class="text-2xl">Drivers:</h1>
               <p><%= drivers_count %></p>
             </li>
           </a>
           <a href="/teams">
             <li>
-              <h1>Teams:</h1>
+              <h1 class="text-2xl">Teams:</h1>
               <p><%= teams_count %></p>
             </li>
           </a>
           <a href="teamprincipal">
             <li>
-              <h1>Team Principals:</h1>
+              <h1 class="text-2xl">Team Principals:</h1>
               <p><%= team_principals_count %></p>
             </li>
           </a>
           <a href="/car">
             <li>
-              <h1>Cars:</h1>
+              <h1 class="text-2xl">Cars:</h1>
               <p><%= cars_count %></p>
             </li>
           </a>
