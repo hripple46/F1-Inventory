@@ -31,4 +31,8 @@ router.post("/driver/create", driver_controller.driver_create_post);
 
 router.get("/driver/:id", driver_controller.driver_details);
 
+router.get("/driver/:id/delete", driver_controller.driver_delete_get);
+
+router.post("/driver/:id/delete", driver_controller.driver_delete_post);
+
 module.exports = router;

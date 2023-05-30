@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const Driver = require("../models/driver");
+const driver = require("../models/driver");
 
 exports.driver_list = asyncHandler(async (req, res, next) => {
   const AllDrivers = await Driver.find().sort({ name: 1 }).exec();
@@ -50,3 +51,17 @@ exports.driver_create_post = [
     }
   }),
 ];
+
+exports.driver_delete_get = asyncHandler(async (req, res, next) => {
+  const driver = await Driver.findById(req.params.id).exec();
+
+  if (!driver) {
+    res.redirect("/driver");
+  }
+  res.render("driver_delete", { title: "Delete Driver", driver });
+});
+
+exports.driver_delete_post = asyncHandler(async (req, res, next) => {
+  await driver.findByIdAndRemove(req.body.driverid);
+  res.redirect("/driver");
+});
