@@ -8,12 +8,14 @@
     <div class="flex w-full h-full">
       <%- include ('sidebar') %>
       <div class="w-3/4 pt-8 pl-4">
-        <h1 class="text-3xl text-red-600">Cars</h1>
-
-        <div class="flex justify-evenly mt-8">
+        <h1 class="text-3xl text-red-600 h-24">Formula 1</h1>
+        <p class="text-2xl">Cars:</p>
+        <div class="grid grid-cols-3 gap-4 mt-8">
           <% for (let car of car_list) { %>
           <a href="<%= car.url %>">
-            <div class="bg-gray-50 shadow-lg p-4 min-w-min">
+            <div
+              class="flex items-center min-h-[90px] h-full w-full bg-red-600 text-white"
+            >
               <p class="text-2xl"><%= car.name %></p>
             </div>
           </a>
