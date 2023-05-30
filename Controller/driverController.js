@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const Driver = require("../models/driver");
 const driver = require("../models/driver");
+const Team = require("../models/team");
 
 exports.driver_list = asyncHandler(async (req, res, next) => {
   const AllDrivers = await Driver.find().sort({ name: 1 }).exec();
@@ -13,14 +14,17 @@ exports.driver_list = asyncHandler(async (req, res, next) => {
 
 exports.driver_details = asyncHandler(async (req, res, next) => {
   const Driver_Details = await Driver.findById(req.params.id).exec();
+
   res.render("driver_details", {
     driver_details: Driver_Details,
   });
 });
 
-exports.driver_create_get = (req, res, next) => {
-  res.render("driver_form", { title: "Create Driver" });
-};
+exports.driver_create_get = asyncHandler(async (req, res, next) => {
+  const Teams = await Team.find().sort({ name: 1 }).exec();
+  console.log("Teams: " + Teams);
+  res.render("driver_form", { title: "Create Driver", teams: Teams });
+});
 
 exports.driver_create_post = [
   body("name", "Driver name must contain at least 3 characters")
