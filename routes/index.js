@@ -11,6 +11,8 @@ router.get("/", indexController.index);
 
 router.get("/teams", teams_controller.teams_list);
 
+router.get("/teams/create", teams_controller.teams_create_get);
+
 router.get("/team/:id", teams_controller.teams_details);
 
 router.get("/teamprincipal", teamPrincipal_controller.teamprincipal_list);

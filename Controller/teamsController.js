@@ -16,7 +16,6 @@ exports.teams_details = asyncHandler(async (req, res, next) => {
   const team = await Teams.findById(req.params.id);
   const teamprincipal = await TeamPrincipal.findById(team.teamprincipal);
   const drivers = await team.drivers;
-  console.log(drivers);
   const car = await Car.findById(team.car);
   const driver_list = [];
   for (let driver of drivers) {
@@ -30,4 +29,8 @@ exports.teams_details = asyncHandler(async (req, res, next) => {
     driver_list: driver_list,
     team_car: car,
   });
+});
+
+exports.teams_create_get = asyncHandler(async (req, res, next) => {
+  res.render("teams_form");
 });
