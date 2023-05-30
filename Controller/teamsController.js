@@ -16,10 +16,12 @@ exports.teams_details = asyncHandler(async (req, res, next) => {
   const team = await Teams.findById(req.params.id);
   const teamprincipal = await TeamPrincipal.findById(team.teamprincipal);
   const drivers = await team.drivers;
+  console.log(drivers);
   const car = await Car.findById(team.car);
   const driver_list = [];
   for (let driver of drivers) {
     const teamDriver = await Driver.findById(driver);
+    console.log("Driver: " + driver);
     driver_list.push(teamDriver);
   }
   res.render("team_details", {

@@ -35,7 +35,13 @@ exports.driver_create_post = [
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
 
-    const driver = new Driver({ name: req.body.name });
+    const driver = new Driver({
+      name: req.body.name,
+      team: req.body.driverteam,
+    });
+    const team = await Team.findById(req.body.driverteam);
+    await team.drivers.push(driver);
+    await team.save();
 
     if (!errors.isEmpty()) {
       res.render("driver_form", {
@@ -58,6 +64,12 @@ exports.driver_create_post = [
 
 exports.driver_delete_get = asyncHandler(async (req, res, next) => {
   const driver = await Driver.findById(req.params.id).exec();
+  if (driver.team) {
+    const team = await Team.findById(driver.team);
+    team.drivers.pull(driver);
+    await team.save();
+  }
+  console.log(driver.team);
 
   if (!driver) {
     res.redirect("/driver");
