@@ -5,23 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
 
-    <title>Teams Form</title>
+    <title><%= title %></title>
   </head>
 
   <body class="w-full h-full">
     <div class="flex w-full h-full">
       <%- include ('sidebar') %>
       <div class="w-3/4 pt-8 pl-4">
-        <form class="grid grid-cols-2 mt-8 gap-8" method="POST" action="">
-          <label for="teamname">Team: </label>
+        <form method="POST" action="">
+          <label for="teamsid">Name</label>
           <input
-            class="border border-2 border-black"
+            class="border-1 border-black"
             type="text"
-            name="teamname"
-            placeholder="Ferarri"
-            value=""
+            name="teamsid"
+            value="<%= team._id %>"
           />
-          <button class="bg-green-600 text-white" type="submit">Add</button>
+          <button class="bg-red-600 text-white" type="submit">Delete</button>
         </form>
       </div>
     </div>

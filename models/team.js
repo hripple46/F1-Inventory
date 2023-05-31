@@ -6,10 +6,10 @@ const TeamSchema = new Schema({
   teamprincipal: {
     type: Schema.Types.ObjectId,
     ref: "TeamPrincipal",
-    required: true,
+    required: false,
   },
-  drivers: [{ type: Schema.Types.ObjectId, ref: "Driver", required: true }],
-  car: { type: Schema.Types.ObjectId, ref: "Car", required: true },
+  drivers: [{ type: Schema.Types.ObjectId, ref: "Driver", required: false }],
+  car: { type: Schema.Types.ObjectId, ref: "Car", required: false },
 });
 
 TeamSchema.virtual("url").get(function () {

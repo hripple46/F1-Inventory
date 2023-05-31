@@ -34,3 +34,26 @@ exports.teams_details = asyncHandler(async (req, res, next) => {
 exports.teams_create_get = asyncHandler(async (req, res, next) => {
   res.render("teams_form");
 });
+
+exports.teams_create_post = asyncHandler(async (req, res, next) => {
+  const team = new Teams({
+    name: req.body.teamname,
+  });
+  const isTeamsExist = await Teams.findOne({ name: req.body.teamname }).exec();
+  if (isTeamsExist) {
+    res.redirect(isTeamsExist.url);
+  } else {
+    await team.save();
+    res.redirect(team.url);
+  }
+});
+
+exports.teams_delete_get = asyncHandler(async (req, res, next) => {
+  const team = await Teams.findById(req.params.id).exec();
+  res.render("teams_delete", { team: team });
+});
+
+exports.teams_delete_post = asyncHandler(async (req, res, next) => {
+  await Teams.findByIdAndDelete(req.params.teamsid);
+  res.redirect("/teams");
+});
