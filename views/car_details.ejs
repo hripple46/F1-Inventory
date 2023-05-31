@@ -16,6 +16,9 @@
           <p>Engine Status: <%= carInstance.engineStatus %></p>
           <p>Gearbox Status: <%= carInstance.gearboxStatus %></p>
           <p>Body Work Status: <%=carInstance.bodyWorkStatus %></p>
+          <a href="/carinstance/<%= carInstance._id %>/update">
+            <p class="text-2xl">Update</p>
+          </a>
         </div>
         <% } %>
       </div>

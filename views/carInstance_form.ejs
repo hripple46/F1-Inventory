@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <title>Teams Form</title>
+  </head>
+
+  <body class="w-full h-full">
+    <div class="flex w-full h-full">
+      <%- include ('sidebar') %>
+      <div class="w-3/4 pt-8 pl-4">
+        <h1>Current Status:</h1>
+        <p>Engine: <%= carInstance.engineStatus %></p>
+
+        <p>Gearbox: <%= carInstance.gearboxStatus %></p>
+
+        <p>Body Work: <%= carInstance.bodyWorkStatus %></p>
+        <form class="mt-8" action="" method="POST">
+          <select name="engineStatus">
+            <option value="Good">Good</option>
+            <option value="Bad">Bad</option>
+            <option value="Under Repair">Under Repair</option>
+          </select>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -5,6 +5,7 @@ const teamPrincipal_controller = require("../Controller/teamPrincipalController"
 const car_controller = require("../Controller/carController");
 const driver_controller = require("../Controller/driverController");
 const indexController = require("../Controller/indexController");
+const carInstance_Controller = require("../Controller/carInstance_Controller");
 
 /* GET home page. */
 router.get("/", indexController.index);
@@ -42,5 +43,10 @@ router.get("/driver/:id", driver_controller.driver_details);
 router.get("/driver/:id/delete", driver_controller.driver_delete_get);
 
 router.post("/driver/:id/delete", driver_controller.driver_delete_post);
+
+router.get(
+  "/carinstance/:id/update",
+  carInstance_Controller.carInstance_update_get
+);
 
 module.exports = router;
