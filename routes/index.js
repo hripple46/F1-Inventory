@@ -15,9 +15,9 @@ router.get("/teams/create", teams_controller.teams_create_get);
 
 router.post("/teams/create", teams_controller.teams_create_post);
 
-router.get("/teams/:id/delete", teams_controller.teams_delete_get);
+router.get("/team/:id/delete", teams_controller.teams_delete_get);
 
-router.post("/teams/:id/delete", teams_controller.teams_delete_post);
+router.post("/team/:id/delete", teams_controller.teams_delete_post);
 
 router.get("/team/:id", teams_controller.teams_details);
 

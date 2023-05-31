@@ -28,6 +28,7 @@ exports.teams_details = asyncHandler(async (req, res, next) => {
     teamprinc: teamprincipal,
     driver_list: driver_list,
     team_car: car,
+    team_url: team.url,
   });
 });
 
@@ -54,6 +55,6 @@ exports.teams_delete_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.teams_delete_post = asyncHandler(async (req, res, next) => {
-  await Teams.findByIdAndDelete(req.params.teamsid);
+  await Teams.findByIdAndDelete(req.body.teamsid);
   res.redirect("/teams");
 });
