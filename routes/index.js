@@ -49,4 +49,9 @@ router.get(
   carInstance_Controller.carInstance_update_get
 );
 
+router.post(
+  "/carinstance/:id/update",
+  carInstance_Controller.carInstance_update_post
+);
+
 module.exports = router;
