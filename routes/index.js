@@ -25,8 +25,28 @@ router.get("/team/:id", teams_controller.teams_details);
 router.get("/teamprincipal", teamPrincipal_controller.teamprincipal_list);
 
 router.get(
+  "/teamprincipal/create",
+  teamPrincipal_controller.teamprincipal_create_get
+);
+
+router.post(
+  "/teamprincipal/create",
+  teamPrincipal_controller.teamprincipal_create_post
+);
+
+router.get(
   "/teamprincipal/:id",
   teamPrincipal_controller.teamPrincipal_details
+);
+
+router.get(
+  "/teamprincipal/:id/delete",
+  teamPrincipal_controller.teamprincipal_delete_get
+);
+
+router.post(
+  "/teamprincipal/:id/delete",
+  teamPrincipal_controller.teamprincipal_delete_post
 );
 
 router.get("/car", car_controller.car_list);

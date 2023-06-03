@@ -63,7 +63,7 @@ exports.driver_create_post = [
 ];
 
 exports.driver_delete_get = asyncHandler(async (req, res, next) => {
-  const driver = await Driver.findById(req.params.id).exec();
+  const driver = await Driver.findById(req.params.id);
   if (driver.team) {
     const team = await Team.findById(driver.team);
     team.drivers.pull(driver);

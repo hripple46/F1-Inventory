@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <title><%= title %></title>
+  </head>
+
+  <body class="w-full h-full">
+    <div class="flex w-full h-full">
+      <%- include ('sidebar') %>
+      <div class="w-3/4 pt-8 pl-4">
+        <form method="POST" action="">
+          <label for="teamPrincipalid">Name</label>
+          <input
+            class="border-1 border-black"
+            type="text"
+            name="teamPrincipalid"
+            value="<%= teamPrincipal._id %>"
+          />
+          <button class="bg-red-600 text-white" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -23,6 +23,7 @@ exports.teams_details = asyncHandler(async (req, res, next) => {
     console.log("Driver: " + driver);
     driver_list.push(teamDriver);
   }
+  console.log("Driver List: " + driver_list);
   res.render("team_details", {
     title: team.name,
     teamprinc: teamprincipal,

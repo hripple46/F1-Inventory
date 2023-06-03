@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <title><%= title %></title>
+  </head>
+
+  <body class="w-full h-full">
+    <div class="flex w-full h-full">
+      <%- include ('sidebar') %>
+      <div class="w-3/4 pt-8 pl-4">
+        <form class="grid grid-cols-2 mt-8 gap-8" method="POST" action="">
+          <label for="name">Name: </label>
+          <input
+            class="border border-2 border-black"
+            type="text"
+            name="name"
+            placeholder="Toto Wolff"
+            value=""
+          />
+          <label for="teamprincipalteam">Team: </label>
+          <select name="teamprincipalteam">
+            <% for (let Team of Teams) { %>
+            <option value="<%=Team._id %>"><%= Team.name %></option>
+            <% } %>
+          </select>
+          <button class="bg-green-300 rounded-lg" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

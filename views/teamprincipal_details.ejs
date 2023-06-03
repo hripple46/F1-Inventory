@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="h-full w-full">
+  <head>
+    <title><%= teamprincipal_details.name %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body class="w-full h-full">
+    <div class="flex w-full h-full">
+      <%- include ('sidebar') %>
+      <div class="w-3/4 pt-8 pl-4">
+        <h1 class="text-3xl text-red-600"><%= teamprincipal_details.name %></h1>
+
+        <div class="flex justify-evenly mt-8">
+          <p>Age: <%= teamprincipal_details.age %></p>
+          <p>
+            Total Championships as TP: <%= teamprincipal_details.championships
+            %>
+          </p>
+        </div>
+      </div>
+      <a href="<%= teamprincipal_details.url +  `/delete` %>">
+        <p class="text-2xl">Delete</p>
+      </a>
+    </div>
+  </body>
+</html>
