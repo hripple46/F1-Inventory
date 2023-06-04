@@ -15,15 +15,13 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 const mongoose = require("mongoose");
-const MongodDB =
-  "mongodb+srv://" +
-  `${process.env.MONGOLOGIN}` +
-  ":" +
-  `${process.env.MONGOPASSWORD}` +
-  "@cluster0.mncxuxu.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI;
 
 const main = async () => {
-  await mongoose.connect(MongodDB);
+  await mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 };
 main()
   .then(() => console.log("Connected!"))
