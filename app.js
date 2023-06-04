@@ -15,13 +15,11 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 const mongoose = require("mongoose");
-const uri = process.env.MONGODB_URI;
+
+const MongoDB = process.env.MONGODB_URI || process.env.dev_db_url;
 
 const main = async () => {
-  await mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose.connect(MongoDB);
 };
 main()
   .then(() => console.log("Connected!"))
