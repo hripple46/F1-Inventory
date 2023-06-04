@@ -14,13 +14,15 @@
           <p>Age: <%= driver_details.age %></p>
           <p>World Driver Championships: <%= driver_details.championships %></p>
         </div>
+        <div class="w-1/4 text-center mt-8">
+          <a href="<%= driver_details.url +  `/delete` %>">
+            <p class="text-2xl bg-red-300 rounded-lg">Delete</p>
+          </a>
+          <a href="<%= driver_details.url +  `/update` %>">
+            <p class="mt-4 text-2xl bg-green-300 rounded-lg">Update</p>
+          </a>
+        </div>
       </div>
-      <a href="<%= driver_details.url +  `/delete` %>">
-        <p class="text-2xl">Delete</p>
-      </a>
-      <a href="<%= driver_details.url +  `/update` %>">
-        <p class="text-2xl">Update</p>
-      </a>
     </div>
   </body>
 </html>

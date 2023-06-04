@@ -49,6 +49,16 @@ router.post(
   teamPrincipal_controller.teamprincipal_delete_post
 );
 
+router.get(
+  "/teamprincipal/:id/update",
+  teamPrincipal_controller.teamprincipal_update_get
+);
+
+router.post(
+  "/teamprincipal/:id/update",
+  teamPrincipal_controller.teamprincipal_update_post
+);
+
 router.get("/car", car_controller.car_list);
 
 router.get("/car/:id", car_controller.car_details);

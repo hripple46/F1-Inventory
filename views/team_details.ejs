@@ -13,10 +13,14 @@
           <div>
             <p class="text-2xl">Team Principal:</p>
             <% if (teamprinc) { %>
+            <a href="<%= teamprinc.url %>">
+              <p class="text-2xl"><%= teamprinc.name %></p>
+            </a>
 
-            <p class="text-2xl"><%= teamprinc.name %></p>
             <% } else { %>
+
             <p class="text-2xl">No Team Principal</p>
+
             <% } %>
           </div>
           <div>
@@ -34,14 +38,13 @@
             <% if (!team_car) { %>
             <p class="text-2xl">No Car</p>
             <% } else { %>
-            <p class="text-2xl"><%= team_car.name %></p>
+            <a href="<%= team_car.url %>">
+              <p class="text-2xl"><%= team_car.name %></p>
+            </a>
             <% } %>
           </div>
         </div>
       </div>
-      <a href="<%= team_url +  `/delete` %>">
-        <p class="text-2xl">Delete</p>
-      </a>
     </div>
   </body>
 </html>

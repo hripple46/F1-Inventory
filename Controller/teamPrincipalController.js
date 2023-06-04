@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const TeamPrincipals = require("../models/teamPrincipal");
 const Team = require("../models/team");
 const { body, validationResult } = require("express-validator");
+const team = require("../models/team");
 
 exports.teamprincipal_list = asyncHandler(async (req, res, next) => {
   const teamPrincipal_List = await TeamPrincipals.find()
@@ -15,8 +16,10 @@ exports.teamprincipal_list = asyncHandler(async (req, res, next) => {
 
 exports.teamPrincipal_details = asyncHandler(async (req, res, next) => {
   const teamPrincipal = await TeamPrincipals.findById(req.params.id);
+  const team = await Team.findById(teamPrincipal.team);
   res.render("teamprincipal_details", {
     teamprincipal_details: teamPrincipal,
+    team: team,
   });
 });
 
@@ -78,3 +81,42 @@ exports.teamprincipal_delete_post = asyncHandler(async (req, res, next) => {
   await TeamPrincipals.findByIdAndDelete(req.body.teamprincipalid);
   res.redirect("teamPrincipal_list");
 });
+
+exports.teamprincipal_update_get = asyncHandler(async (req, res, next) => {
+  const teamPrincipal = await TeamPrincipals.findById(req.params.id);
+  const Teams = await Team.find().sort({ name: 1 }).exec();
+  res.render("teamprincipal_update", {
+    title: "Update Team Principal",
+    teamPrincipal,
+    teams: Teams,
+  });
+});
+
+//post update
+exports.teamprincipal_update_post = [
+  body("name", "Driver name must contain at least 3 characters")
+    .trim()
+    .isLength({ min: 3 })
+    .escape(),
+
+  asyncHandler(async (req, res, next) => {
+    //pull team principal from team
+
+    const teamPrincipal = TeamPrincipals.findById(req.params.id);
+    const oldTeam = Team.findById(teamPrincipal.team);
+    console.log("Team :" + teamPrincipal.team);
+
+    await oldTeam.teamprincipal.pull(teamPrincipal);
+    console.log("Old Team After Pull" + oldTeam.teamprincipal);
+    await oldTeam.save();
+
+    teamPrincipal.name = req.body.name;
+    teamPrincipal.team = req.body.teamprincipalteam;
+    teamPrincipal.age = req.body.age;
+    teamPrincipal.save();
+    //push team principal to new team
+    const newTeam = Team.findById(req.body.teamprincipalteam);
+    await newTeam.drivers.push(teamPrincipal);
+    await newTeam.save();
+  }),
+];

@@ -3,11 +3,13 @@ const Schema = mongoose.Schema;
 
 const TeamSchema = new Schema({
   name: { type: String, required: true },
-  teamprincipal: {
-    type: Schema.Types.ObjectId,
-    ref: "TeamPrincipal",
-    required: false,
-  },
+  teamprincipal: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "TeamPrincipal",
+      required: false,
+    },
+  ],
   drivers: [{ type: Schema.Types.ObjectId, ref: "Driver", required: false }],
   car: { type: Schema.Types.ObjectId, ref: "Car", required: false },
 });
