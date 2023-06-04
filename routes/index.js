@@ -64,6 +64,10 @@ router.get("/driver/:id/delete", driver_controller.driver_delete_get);
 
 router.post("/driver/:id/delete", driver_controller.driver_delete_post);
 
+router.get("/driver/:id/update", driver_controller.driver_update_get);
+
+router.post("/driver/:id/update", driver_controller.driver_update_post);
+
 router.get(
   "/carinstance/:id/update",
   carInstance_Controller.carInstance_update_get
