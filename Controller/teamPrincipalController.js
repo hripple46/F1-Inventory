@@ -8,7 +8,7 @@ exports.teamprincipal_list = asyncHandler(async (req, res, next) => {
   const teamPrincipal_List = await TeamPrincipals.find()
     .sort({ name: 1 })
     .exec();
-  res.render("teamPrincipal_List", {
+  res.render("teamPrincipal_list", {
     teamPrincipal_List: teamPrincipal_List,
     title: "Team Principals",
   });
