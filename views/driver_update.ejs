@@ -12,10 +12,10 @@
     <div class="flex w-full h-full">
       <%- include ('sidebar') %>
       <div class="w-3/4 pt-8 pl-4">
-        <form class="grid grid-cols-2 mt-8 gap-8" method="POST" action="">
+        <form class="grid grid-cols-2 mt-8 gap-8 w-1/2" method="POST" action="">
           <label for="name">Name: </label>
           <input
-            class="border border-2 border-black"
+            class="border border-2 border-black rounded-lg"
             type="text"
             name="name"
             placeholder="Lewis Hamilton"
@@ -23,7 +23,7 @@
           />
           <label for="age">Age: </label>
           <input
-            class="border border-2 border-black"
+            class="border border-2 border-black rounded-lg"
             type="text"
             name="age"
             placeholder="36"
@@ -32,7 +32,7 @@
           />
           <label for="championships">Championships: </label>
           <input
-            class="border border-2 border-black"
+            class="border border-2 border-black rounded-lg"
             type="text"
             name="championships"
             placeholder="7"
@@ -40,12 +40,14 @@
             %>"
           />
           <label for="driverteam">Team: </label>
-          <select name="driverteam">
+          <select class="border-2 border-black rounded-lg" name="driverteam">
             <% for (let team of teams) { %>
             <option value="<%=team._id %>"><%= team.name %></option>
             <% } %>
           </select>
-          <button class="bg-green-300 rounded-lg" type="submit">Submit</button>
+          <button class="bg-green-300 rounded-lg text-black" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>

@@ -18,23 +18,33 @@
         <p>Gearbox: <%= carInstance.gearboxStatus %></p>
 
         <p>Body Work: <%= carInstance.bodyWorkStatus %></p>
-        <form class="mt-8" action="" method="POST">
-          <select name="engineStatus">
+        <form class="mt-8 grid grid-cols-2 w-1/2" action="" method="POST">
+          <label for="engineStatus">Engine Status:</label>
+          <select class="border-2 border-black rounded-lg" name="engineStatus">
             <option value="Good">Good</option>
             <option value="Bad">Bad</option>
             <option value="Under Repair">Under Repair</option>
           </select>
-          <select name="gearboxStatus">
+
+          <label for="gearboxStatus">Gearbox Status:</label>
+          <select class="border-2 border-black rounded-lg" name="gearboxStatus">
             <option value="Good">Good</option>
             <option value="Bad">Bad</option>
             <option value="Under Repair">Under Repair</option>
           </select>
-          <select name="bodyWorkStatus">
+
+          <label for="bodyWorkStatus">Body Work Status:</label>
+          <select
+            class="border-2 border-black rounded-lg"
+            name="bodyWorkStatus"
+          >
             <option value="Good">Good</option>
             <option value="Bad">Bad</option>
             <option value="Under Repair">Under Repair</option>
           </select>
-          <button class="bg-green-600 text-white" type="submit">Update</button>
+          <button class="bg-green-300 rounded-lg text-black" type="submit">
+            Update
+          </button>
         </form>
       </div>
     </div>
